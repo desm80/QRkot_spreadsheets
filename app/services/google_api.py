@@ -54,7 +54,7 @@ async def spreadsheets_update_value(
         ['Топ проектов по скорости закрытия'],
         ['Название проекта', 'Время сбора', 'Описание']
     ]
-    for pro in projects[::-1]:
+    for pro in projects:
 
         new_row = [
             str(pro[0]), str(timedelta(seconds=pro[1])), str(pro[2])
