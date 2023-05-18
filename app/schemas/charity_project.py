@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 
 from pydantic import BaseModel, Extra, Field, PositiveInt
@@ -33,11 +33,10 @@ class CharityProjectDB(CharityProjectCreate):
         orm_mode = True
 
 
-# class CharityProjectGoogle(BaseModel):
-#     name: str = Field(..., min_length=1, max_length=100)
-#     description: str = Field(..., min_length=1)
-#
-#     class Config:
-#         orm_mode = True
+class CharityProjectGoogle(BaseModel):
+    name: str = Field(..., min_length=1, max_length=100)
+    time: int
+    description: str = Field(..., min_length=1)
 
-
+    class Config:
+        orm_mode = True

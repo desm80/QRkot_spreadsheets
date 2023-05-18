@@ -1,7 +1,6 @@
-from pprint import pprint
-from typing import Optional, List, Tuple
+from typing import Optional
 
-from sqlalchemy import select, func, text
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.crud.base import CRUDBase
@@ -33,7 +32,7 @@ class CRUDCharityProject(CRUDBase):
                 (func.unixepoch(CharityProject.close_date) -
                     func.unixepoch(CharityProject.create_date)).label('time'),
                 CharityProject.description,
-            ).order_by('time').where(CharityProject.fully_invested==1))
+            ).order_by('time').where(CharityProject.fully_invested == 1))
 
         return projects.all()
 

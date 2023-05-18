@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 from aiogoogle import Aiogoogle
+
 from app.core.config import settings
 
 FORMAT = "%Y/%m/%d %H:%M:%S"
@@ -64,7 +65,7 @@ async def spreadsheets_update_value(
         'majorDimension': 'ROWS',
         'values': table_values
     }
-    response = await wrapper_services.as_service_account(
+    await wrapper_services.as_service_account(
         service.spreadsheets.values.update(
             spreadsheetId=spreadsheetid,
             range='A1:E30',
